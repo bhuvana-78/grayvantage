@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GACS | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e9eef3; }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 0.8rem 0; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon { background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
+    .logo-icon .gacs { font-size: 22px; }
+    .logo-icon .small { font-size: 8px; margin-top: 2px; }
+    .logo-text h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #4b6e8a; font-style: italic; }
+    .nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; font-weight: 600; color: #1e2f3e; font-size: 0.9rem; }
+    .nav-links a:hover { color: #2c7da0; }
+    .btn-get-started { background: linear-gradient(135deg, #1e4c6b, #2c7da0); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 700; }
+    .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; margin: 2rem 0 1rem; color: #0f2c3f; }
+    .about-grid { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; margin: 2rem 0; }
+    .about-image { flex: 1; border-radius: 32px; overflow: hidden; }
+    .about-image img { width: 100%; }
+    .about-text { flex: 1.2; }
+    .about-text p { margin-bottom: 1.2rem; line-height: 1.6; }
+    .mission-vision { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; margin: 3rem 0; }
+    .mv-card { background: white; border-radius: 24px; padding: 2rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    .mv-card i { font-size: 2.5rem; color: #2c7da0; margin-bottom: 1rem; }
+    .values-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0; }
+    .value-badge { background: #e9f2f7; padding: 0.6rem 1.5rem; border-radius: 60px; font-weight: 600; }
+    footer { background: #0e2a38; color: #b9cfdf; padding: 2.5rem 0; text-align: center; margin-top: 3rem; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 1rem; } .about-grid { flex-direction: column; } .nav-links { justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-container">
+    <a href="./index.html" class="logo">
+      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST. 2020</span></div>
+      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./expertise.html">Our Expertise</a>
+      <a href="./whychooseus.html">Why Us</a>
+      <a href="./contact.html">Contact Us</a>
+      <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 class="section-title">About GACS</h1>
+    <div class="about-grid">
+      <div class="about-image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" alt="Team"></div>
+      <div class="about-text">
+        <p><strong>GrayVantage Academic & Corporate Services (GACS)</strong> is a premier provider of nationwide training, seminars, and professional development programs tailored for schools, organizations, and companies across the Philippines.</p>
+        <p>Our programs are facilitated by experienced speakers with extensive academic and industry backgrounds, ensuring relevant, engaging, and results-oriented training.</p>
+        <p><strong>Trusted by Top Institutions:</strong> PUP, Adamson University, and 30+ institutions. Over 10,000 webinar attendees in the last 4 months.</p>
+      </div>
+    </div>
+    <div class="mission-vision">
+      <div class="mv-card"><i class="fas fa-bullseye"></i><h3>Mission</h3><p>Empowering individuals and organizations through high-quality training.</p></div>
+      <div class="mv-card"><i class="fas fa-eye"></i><h3>Vision</h3><p>To be a leading provider of transformative learning solutions.</p></div>
+      <div class="mv-card"><i class="fas fa-gem"></i><h3>Philosophy</h3><p>Knowledge becomes power when applied with purpose and integrity.</p></div>
+    </div>
+    <div class="values-flex">
+      <span class="value-badge">⭐ Excellence</span>
+      <span class="value-badge">🔒 Integrity</span>
+      <span class="value-badge">💡 Innovation</span>
+      <span class="value-badge">🤝 Collaboration</span>
+      <span class="value-badge">🚀 Empowerment</span>
+      <span class="value-badge">❤️ Service</span>
+    </div>
+  </div>
+</main>
+<footer><div class="container"><p>© 2025 GACS | GrayVantage — INNOVATE. LEARN. LEAD.</p></div></footer>
+</body>
+</html>

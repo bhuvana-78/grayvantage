@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GACS | Get Started</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%); }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 0.8rem 32px; max-width: 1280px; margin: 0 auto; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon { background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
+    .logo-icon .gacs { font-size: 22px; }
+    .logo-icon .small { font-size: 8px; margin-top: 2px; }
+    .logo-text h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #4b6e8a; font-style: italic; }
+    .nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; font-weight: 600; color: #1e2f3e; font-size: 0.9rem; }
+    .nav-links a:hover { color: #2c7da0; }
+    .btn-get-started { background: linear-gradient(135deg, #1e4c6b, #2c7da0); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 700; }
+    .getstarted-container { background: white; border-radius: 48px; padding: 3rem; margin: 3rem 0; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .getstarted-container h1 { font-size: 2.2rem; text-align: center; margin-bottom: 0.5rem; }
+    .getstarted-container p { text-align: center; margin-bottom: 2rem; color: #4a627a; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 16px; font-family: inherit; background: #f8fafc; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit { background: linear-gradient(135deg, #1e4c6b, #2c7da0); color: white; padding: 1rem 2rem; border: none; border-radius: 40px; font-weight: 700; width: 100%; cursor: pointer; }
+    .benefits { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .benefit-item { flex: 1; background: #eef3fa; padding: 1rem; border-radius: 20px; text-align: center; }
+    footer { background: #0e2a38; color: #b9cfdf; padding: 2.5rem 0; text-align: center; margin-top: 3rem; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 1rem; } .row-2 { grid-template-columns: 1fr; } .nav-links { justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="./index.html" class="logo">
+      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST. 2020</span></div>
+      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./expertise.html">Our Expertise</a>
+      <a href="./whychooseus.html">Why Us</a>
+      <a href="./contact.html">Contact Us</a>
+      <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="getstarted-container">
+      <h1>Start Your Journey with GACS</h1>
+      <p>Fill out the form below and our team will contact you within 24 hours</p>
+      <form>
+        <div class="row-2">
+          <div class="form-group"><input type="text" placeholder="Full Name *" required></div>
+          <div class="form-group"><input type="email" placeholder="Email Address *" required></div>
+        </div>
+        <div class="row-2">
+          <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+          <div class="form-group"><select><option>Organization Type</option><option>School / University</option><option>Corporation</option></select></div>
+        </div>
+        <div class="form-group"><select><option>Select Training Program</option><option>Business Administration</option><option>Leadership Development</option><option>Office Administration</option></select></div>
+        <div class="form-group"><textarea rows="4" placeholder="Tell us about your training needs..."></textarea></div>
+        <button type="submit" class="btn-submit">Submit Request →</button>
+      </form>
+      <div class="benefits">
+        <div class="benefit-item"><i class="fas fa-clock"></i><p>Quick Response<br>Within 24hrs</p></div>
+        <div class="benefit-item"><i class="fas fa-chalkboard-user"></i><p>Free Consultation</p></div>
+        <div class="benefit-item"><i class="fas fa-percent"></i><p>Early Booking Discount</p></div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><div class="container"><p>© 2025 GACS | GrayVantage — INNOVATE. LEARN. LEAD.</p></div></footer>
+</body>
+</html>

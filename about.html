@@ -4,54 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GACS | About Us</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e9eef3; }
-    .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 0.8rem 0; }
+    body { font-family: 'Inter', sans-serif; background: #f0f7fc; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeInUp 0.6s ease forwards; }
+    
+    .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon { background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
+    .logo-icon { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
     .logo-icon .gacs { font-size: 22px; }
-    .logo-icon .small { font-size: 8px; margin-top: 2px; }
-    .logo-text h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .logo-text span { font-size: 0.7rem; display: block; color: #4b6e8a; font-style: italic; }
-    .nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; font-weight: 600; color: #1e2f3e; font-size: 0.9rem; }
-    .nav-links a:hover { color: #2c7da0; }
-    .btn-get-started { background: linear-gradient(135deg, #1e4c6b, #2c7da0); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 700; }
-    .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; margin: 2rem 0 1rem; color: #0f2c3f; }
-    .about-grid { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; margin: 2rem 0; }
-    .about-image { flex: 1; border-radius: 32px; overflow: hidden; }
-    .about-image img { width: 100%; }
-    .about-text { flex: 1.2; }
-    .about-text p { margin-bottom: 1.2rem; line-height: 1.6; }
-    .mission-vision { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; margin: 3rem 0; }
-    .mv-card { background: white; border-radius: 24px; padding: 2rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-    .mv-card i { font-size: 2.5rem; color: #2c7da0; margin-bottom: 1rem; }
-    .values-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0; }
-    .value-badge { background: #e9f2f7; padding: 0.6rem 1.5rem; border-radius: 60px; font-weight: 600; }
-    footer { background: #0e2a38; color: #b9cfdf; padding: 2.5rem 0; text-align: center; margin-top: 3rem; }
-    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 1rem; } .about-grid { flex-direction: column; } .nav-links { justify-content: center; } }
+    .logo-icon .small { font-size: 7px; margin-top: 2px; }
+    .logo-text h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.65rem; display: block; color: #5a7d9a; }
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.9rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1B4F6E; font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+    .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; transition: all 0.3s ease !important; }
+    .btn-get-started:hover { transform: translateY(-2px); }
+    
+    .page-title { text-align: center; padding: 130px 0 40px; }
+    .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
+    .about-grid { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; margin: 40px 0; }
+    .about-image { flex: 1; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .about-image:hover { transform: translateY(-5px); }
+    .about-image img { width: 100%; height: auto; display: block; }
+    .about-content { flex: 1; background: white; border-radius: 32px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+    .about-content:hover { transform: translateY(-5px); }
+    .about-content p { margin-bottom: 20px; line-height: 1.7; color: #4a627a; }
+    .mission-vision { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+    .mv-card { background: #f8fafc; border-radius: 24px; padding: 30px; text-align: center; transition: all 0.3s ease; }
+    .mv-card:hover { transform: translateY(-8px); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .mv-card i { font-size: 2.5rem; color: #1B4F6E; margin-bottom: 15px; transition: transform 0.3s ease; }
+    .mv-card:hover i { transform: scale(1.1); }
+    .values { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 40px 0 20px; }
+    .value { background: #e8f0f5; padding: 10px 25px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; cursor: default; }
+    .value:hover { background: #1B4F6E; color: white; transform: translateY(-3px); }
+    footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .about-grid { flex-direction: column; } }
   </style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="container nav-container">
+  <div class="nav-container">
     <a href="./index.html" class="logo">
-      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST. 2020</span></div>
+      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST.2020</span></div>
       <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
     <div class="nav-links">
       <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
+      <a href="./about.html" class="active">About</a>
       <a href="./services.html">Services</a>
-      <a href="./expertise.html">Our Expertise</a>
+      <a href="./expertise.html">Expertise</a>
       <a href="./whychooseus.html">Why Us</a>
-      <a href="./contact.html">Contact Us</a>
+      <a href="./contact.html">Contact</a>
       <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
     </div>
   </div>
@@ -59,30 +74,31 @@
 
 <main>
   <div class="container">
-    <h1 class="section-title">About GACS</h1>
+    <div class="page-title fade-up"><h1>About GrayVantage</h1></div>
+    
     <div class="about-grid">
-      <div class="about-image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" alt="Team"></div>
-      <div class="about-text">
-        <p><strong>GrayVantage Academic & Corporate Services (GACS)</strong> is a premier provider of nationwide training, seminars, and professional development programs tailored for schools, organizations, and companies across the Philippines.</p>
-        <p>Our programs are facilitated by experienced speakers with extensive academic and industry backgrounds, ensuring relevant, engaging, and results-oriented training.</p>
-        <p><strong>Trusted by Top Institutions:</strong> PUP, Adamson University, and 30+ institutions. Over 10,000 webinar attendees in the last 4 months.</p>
+      <div class="about-image fade-left">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop" alt="Team collaboration and meeting">
+      </div>
+      <div class="about-content fade-right">
+        <p><strong>GrayVantage Academic & Corporate Services (GACS)</strong> is a premier provider of nationwide training, seminars, and professional development programs tailored for schools, organizations, and companies across the Philippines. We specialize in delivering practical, high-impact learning experiences in Business Administration, Leadership, Tourism and Hospitality, Office Administration, Information Technology, and Professional Skills Development.</p>
+        <p>Our programs are facilitated by experienced speakers with extensive academic and industry backgrounds, ensuring relevant, engaging, and results-oriented training. We bridge academic rigor with practical relevance — empowering professionals with confidence and character to lead in an evolving global landscape.</p>
+        <p><strong>Trusted by Top Institutions:</strong> PUP, Adamson University, Rizal Technological University, and 30+ institutions. Over 10,000 webinar attendees in the last 4 months.</p>
       </div>
     </div>
+
     <div class="mission-vision">
-      <div class="mv-card"><i class="fas fa-bullseye"></i><h3>Mission</h3><p>Empowering individuals and organizations through high-quality training.</p></div>
-      <div class="mv-card"><i class="fas fa-eye"></i><h3>Vision</h3><p>To be a leading provider of transformative learning solutions.</p></div>
-      <div class="mv-card"><i class="fas fa-gem"></i><h3>Philosophy</h3><p>Knowledge becomes power when applied with purpose and integrity.</p></div>
+      <div class="mv-card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>Empowering individuals and organizations through high-quality corporate training, skills development, and leadership enhancement.</p></div>
+      <div class="mv-card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>To be a leading provider of corporate training recognized nationally for transformative learning solutions.</p></div>
+      <div class="mv-card"><i class="fas fa-gem"></i><h3>Our Philosophy</h3><p>Knowledge becomes power only when applied with purpose and integrity.</p></div>
     </div>
-    <div class="values-flex">
-      <span class="value-badge">⭐ Excellence</span>
-      <span class="value-badge">🔒 Integrity</span>
-      <span class="value-badge">💡 Innovation</span>
-      <span class="value-badge">🤝 Collaboration</span>
-      <span class="value-badge">🚀 Empowerment</span>
-      <span class="value-badge">❤️ Service</span>
-    </div>
+
+    <h3 style="text-align: center;">Our Core Values</h3>
+    <div class="values"><span class="value">⭐ Excellence</span><span class="value">🔒 Integrity</span><span class="value">💡 Innovation</span><span class="value">🤝 Collaboration</span><span class="value">🚀 Empowerment</span><span class="value">❤️ Service</span></div>
   </div>
 </main>
-<footer><div class="container"><p>© 2025 GACS | GrayVantage — INNOVATE. LEARN. LEAD.</p></div></footer>
+
+<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
+<script>document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
 </body>
 </html>

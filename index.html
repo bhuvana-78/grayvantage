@@ -4,451 +4,146 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GACS | Home | Professional Training Philippines</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f7fc; color: #1a2c3e; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1a2c3e;
-      line-height: 1.5;
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    .fade-up { animation: fadeInUp 0.8s ease forwards; }
+    .fade-left { animation: fadeInLeft 0.8s ease forwards; }
+    .fade-right { animation: fadeInRight 0.8s ease forwards; }
+    .scale-in { animation: scaleIn 0.6s ease forwards; }
+    
     /* Navigation */
-    .navbar {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 0.8rem 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      background: linear-gradient(135deg, #0F2C3D 0%, #1B4F6E 100%);
-      width: 55px;
-      height: 55px;
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .logo-icon .gacs {
-      font-size: 22px;
-      letter-spacing: 1px;
-    }
-
-    .logo-icon .small {
-      font-size: 7px;
-      letter-spacing: 1px;
-      margin-top: 2px;
-    }
-
-    .logo-text h1 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #0F2C3D 0%, #1B4F6E 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .logo-text span {
-      font-size: 0.65rem;
-      display: block;
-      color: #5a7d9a;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #2c4556;
-      transition: 0.3s;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a:hover {
-      color: #1B4F6E;
-    }
-
-    .btn-get-started {
-      background: linear-gradient(135deg, #0F2C3D, #1B4F6E);
-      color: white !important;
-      padding: 0.6rem 1.5rem;
-      border-radius: 40px;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(27, 79, 110, 0.3);
-    }
-
-    .btn-get-started:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(27, 79, 110, 0.4);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 8rem 0 5rem;
-      background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .hero-content {
-      flex: 1.2;
-    }
-
-    .hero-badge {
-      background: linear-gradient(135deg, #1B4F6E, #2a6d94);
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-content h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: #0a2a3b;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      color: #4a627a;
-      margin-bottom: 2rem;
-      max-width: 550px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #0F2C3D, #1B4F6E);
-      color: white;
-      padding: 0.9rem 2.2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      margin-right: 1rem;
-      box-shadow: 0 4px 15px rgba(27, 79, 110, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid #1B4F6E;
-      padding: 0.85rem 2.2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      color: #1B4F6E;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-secondary:hover {
-      background: #1B4F6E;
-      color: white;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .stat-item h3 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #1B4F6E;
-    }
-
-    .stat-item span {
-      color: #5a7d9a;
-      font-size: 0.85rem;
-    }
-
-    .hero-image {
-      flex: 0.9;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-
+    .navbar { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease; }
+    .logo-icon:hover { transform: scale(1.05); }
+    .logo-icon .gacs { font-size: 22px; letter-spacing: 1px; }
+    .logo-icon .small { font-size: 7px; margin-top: 2px; }
+    .logo-text h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.65rem; display: block; color: #5a7d9a; }
+    
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.9rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1B4F6E; font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+    .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; box-shadow: 0 4px 12px rgba(27, 79, 110, 0.3); transition: all 0.3s ease !important; }
+    .btn-get-started:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27, 79, 110, 0.4); }
+    .btn-get-started::after { display: none; }
+    
+    /* Hero Section with Image */
+    .hero { padding: 130px 0 80px; background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%); }
+    .hero-grid { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+    .hero-content { flex: 1; }
+    .hero-image { flex: 1; }
+    .hero-image img { width: 100%; border-radius: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .hero-image img:hover { transform: scale(1.02); }
+    .hero-badge { background: linear-gradient(135deg, #1B4F6E, #2a6d94); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; color: white; margin-bottom: 25px; letter-spacing: 1.5px; }
+    .hero-content h1 { font-size: 3.2rem; font-weight: 800; color: #0a2a3b; margin-bottom: 20px; line-height: 1.2; }
+    .hero-content p { font-size: 1.1rem; color: #5a7d9a; margin-bottom: 30px; }
+    .btn { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white; padding: 12px 32px; border-radius: 50px; text-decoration: none; display: inline-block; margin: 5px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(27, 79, 110, 0.3); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(27, 79, 110, 0.4); }
+    .btn-outline { background: transparent; border: 2px solid #1B4F6E; color: #1B4F6E; box-shadow: none; }
+    .btn-outline:hover { background: #1B4F6E; color: white; }
+    .stats { display: flex; justify-content: flex-start; gap: 50px; margin-top: 50px; flex-wrap: wrap; }
+    .stat { transition: transform 0.3s ease; }
+    .stat:hover { transform: translateY(-5px); }
+    .stat h3 { font-size: 2.2rem; font-weight: 800; color: #1B4F6E; }
+    .stat span { color: #5a7d9a; font-size: 0.85rem; }
+    
     /* Trusted Section */
-    .trusted-section {
-      padding: 3rem 0;
-      background: white;
-      border-bottom: 1px solid #eef2f8;
-    }
-
-    .trusted-title {
-      text-align: center;
-      color: #5a7d9a;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-    }
-
-    .trusted-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .trusted-logos span {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #8ba3b8;
-    }
-
+    .trusted { padding: 50px 0; background: white; border-top: 1px solid #eef2f8; border-bottom: 1px solid #eef2f8; text-align: center; }
+    .trusted p { color: #8ba3b8; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+    .logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .logos span { color: #5a7d9a; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; cursor: default; }
+    .logos span:hover { color: #1B4F6E; transform: translateY(-2px); }
+    
     /* Expertise Section */
-    .expertise-section {
-      padding: 5rem 0;
-      background: #ffffff;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: #0a2a3b;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #5a7d9a;
-      max-width: 600px;
-      margin: 0 auto 3rem auto;
-    }
-
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .expertise-card {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .expertise-card:hover {
-      transform: translateY(-8px);
-      background: white;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    .expertise-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #e8f0f5, #dce8f0);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-
-    .expertise-icon i {
-      font-size: 2rem;
-      color: #1B4F6E;
-    }
-
-    .expertise-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .expertise-card p {
-      color: #5a7d9a;
-      font-size: 0.85rem;
-    }
-
+    .expertise { padding: 80px 0; background: white; }
+    .section-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; color: #0a2a3b; }
+    .section-sub { text-align: center; color: #5a7d9a; max-width: 600px; margin: 0 auto 50px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: #f8fafc; border-radius: 24px; padding: 35px 25px; text-align: center; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card:hover { transform: translateY(-8px) scale(1.02); background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .card i { font-size: 2.8rem; color: #1B4F6E; margin-bottom: 20px; transition: transform 0.3s ease; }
+    .card:hover i { transform: scale(1.1); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { color: #5a7d9a; font-size: 0.85rem; line-height: 1.6; }
+    
     /* Features Section */
-    .features-section {
-      padding: 5rem 0;
-      background: linear-gradient(135deg, #0F2C3D, #1B4F6E);
-      color: white;
-    }
-
-    .features-section .section-title {
-      color: white;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .feature-card i {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #ffb347;
-    }
-
+    .features { padding: 80px 0; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white; }
+    .features .section-title { color: white; }
+    .features .section-sub { color: rgba(255,255,255,0.8); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }
+    .feature-card { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; text-align: center; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+    .feature-card.visible { opacity: 1; transform: translateY(0); }
+    .feature-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-8px); }
+    .feature-card i { font-size: 2rem; margin-bottom: 15px; color: #ffb347; transition: transform 0.3s ease; }
+    .feature-card:hover i { transform: scale(1.1); }
+    
     /* CTA Section */
-    .cta-section {
-      padding: 5rem 0;
-      background: white;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #f8fafc, #eef2f8);
-      border-radius: 48px;
-      padding: 4rem;
-      text-align: center;
-    }
-
-    .cta-box h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
+    .cta { padding: 80px 0; background: white; text-align: center; }
+    .cta-box { background: linear-gradient(135deg, #f8fafc, #eef2f8); border-radius: 48px; padding: 60px; transition: transform 0.3s ease; }
+    .cta-box:hover { transform: translateY(-5px); }
+    .cta-box h2 { font-size: 2rem; margin-bottom: 15px; }
+    .cta-box p { color: #5a7d9a; margin-bottom: 25px; }
+    
     /* Footer */
-    footer {
-      background: #0a2a3b;
-      color: #b9cfdf;
-      padding: 3rem 0 2rem;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    @media (max-width: 992px) {
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .hero-grid {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-content p {
-        margin: 0 auto 2rem auto;
-      }
-      .hero-stats {
-        justify-content: center;
-      }
-      .container {
-        padding: 0 24px;
-      }
-    }
-
+    footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; }
+    footer p { margin: 5px 0; }
+    
     @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .nav-links {
-        justify-content: center;
-        gap: 1rem;
-      }
-      .hero {
-        padding: 7rem 0 3rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-      .cta-box {
-        padding: 2rem;
-      }
+      .nav-container { flex-direction: column; gap: 15px; }
+      .nav-links { justify-content: center; gap: 15px; }
+      .hero { padding: 120px 0 60px; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-grid { flex-direction: column; text-align: center; }
+      .stats { justify-content: center; }
+      .cta-box { padding: 30px; }
+      .cta-box h2 { font-size: 1.5rem; }
+      .logos { gap: 20px; }
+      .logos span { font-size: 0.75rem; }
     }
   </style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="container nav-container">
+  <div class="nav-container">
     <a href="./index.html" class="logo">
-      <div class="logo-icon">
-        <span class="gacs">GACS</span>
-        <span class="small">EST. 2020</span>
-      </div>
-      <div class="logo-text">
-        <h1>GRAYVANTAGE</h1>
-        <span>Academic & Corporate Service</span>
-      </div>
+      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST.2020</span></div>
+      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
     <div class="nav-links">
-      <a href="./index.html">Home</a>
+      <a href="./index.html" class="active">Home</a>
       <a href="./about.html">About</a>
       <a href="./services.html">Services</a>
-      <a href="./expertise.html">Our Expertise</a>
+      <a href="./expertise.html">Expertise</a>
       <a href="./whychooseus.html">Why Us</a>
       <a href="./contact.html">Contact</a>
       <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
@@ -457,130 +152,75 @@
 </header>
 
 <main>
-  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <i class="fas fa-star-of-life"></i> INNOVATE. LEARN. LEAD.
-        </div>
+      <div class="hero-content fade-left">
+        <div class="hero-badge">✦ SINCE 2020 ✦</div>
         <h1>Empowering Professionals Across the Philippines</h1>
         <p>Nationwide provider of high-impact trainings, seminars, and customized programs for schools, organizations, and companies.</p>
         <div>
-          <a href="./getstarted.html" class="btn-primary">Get Started Now <i class="fas fa-arrow-right"></i></a>
-          <a href="./services.html" class="btn-secondary">Explore Services</a>
+          <a href="./getstarted.html" class="btn">Get Started Now →</a>
+          <a href="./services.html" class="btn btn-outline">Explore Services</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <h3>20,000+</h3>
-            <span>Participants Served</span>
-          </div>
-          <div class="stat-item">
-            <h3>50+</h3>
-            <span>Institutional Engagements</span>
-          </div>
-          <div class="stat-item">
-            <h3>300+</h3>
-            <span>Certified Professionals</span>
-          </div>
+        <div class="stats">
+          <div class="stat"><h3>20,000+</h3><span>Participants Served</span></div>
+          <div class="stat"><h3>50+</h3><span>Institutional Engagements</span></div>
+          <div class="stat"><h3>300+</h3><span>Certified Professionals</span></div>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" alt="Professional Training">
+      <div class="hero-image fade-right">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" alt="Professional training session with team">
       </div>
     </div>
   </section>
 
-  <!-- Trusted By Section -->
-  <div class="trusted-section">
+  <div class="trusted">
     <div class="container">
-      <div class="trusted-title">TRUSTED BY LEADING INSTITUTIONS</div>
-      <div class="trusted-logos">
+      <p>TRUSTED BY LEADING INSTITUTIONS</p>
+      <div class="logos">
         <span>🏛️ Polytechnic University of the Philippines</span>
         <span>🎓 Adamson University</span>
-        <span>📚 30+ Academic Partners</span>
-        <span>🏢 Corporate Organizations</span>
+        <span>📚 Rizal Technological University</span>
+        <span>🏢 30+ Academic Partners</span>
+        <span>💼 Corporate Organizations</span>
       </div>
     </div>
   </div>
 
-  <!-- Our Expertise Section -->
-  <section class="expertise-section">
+  <section class="expertise">
     <div class="container">
       <h2 class="section-title">Our Core Expertise</h2>
-      <div class="section-subtitle">Specialized training areas where we deliver exceptional results</div>
-      <div class="expertise-grid">
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Business Administration</h3>
-          <p>Strategic management, operations excellence, and business growth strategies.</p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-users"></i></div>
-          <h3>Leadership Development</h3>
-          <p>Executive coaching, team building, and managerial excellence.</p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-hotel"></i></div>
-          <h3>Tourism & Hospitality</h3>
-          <p>Customer service excellence and hospitality management.</p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-file-alt"></i></div>
-          <h3>Office Administration</h3>
-          <p>Certified Professional Office Administration program with 300+ graduates.</p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Information Technology</h3>
-          <p>Digital skills, IT management, and technical training.</p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon"><i class="fas fa-brain"></i></div>
-          <h3>Professional Skills</h3>
-          <p>Communication, time management, and workplace competencies.</p>
-        </div>
+      <p class="section-sub">Specialized training areas where we deliver exceptional results</p>
+      <div class="grid">
+        <div class="card"><i class="fas fa-chart-line"></i><h3>Business Administration</h3><p>Strategic management, operations excellence, and business growth strategies.</p></div>
+        <div class="card"><i class="fas fa-users"></i><h3>Leadership Development</h3><p>Executive coaching, team building, and managerial excellence.</p></div>
+        <div class="card"><i class="fas fa-hotel"></i><h3>Tourism & Hospitality</h3><p>Customer service excellence and hospitality management.</p></div>
+        <div class="card"><i class="fas fa-file-alt"></i><h3>Office Administration</h3><p>Certified Professional Office Administration program with 300+ graduates.</p></div>
+        <div class="card"><i class="fas fa-laptop-code"></i><h3>Information Technology</h3><p>Digital skills, IT management, and technical training.</p></div>
+        <div class="card"><i class="fas fa-brain"></i><h3>Professional Skills</h3><p>Communication, time management, and workplace competencies.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose GACS Section -->
-  <section class="features-section">
+  <section class="features">
     <div class="container">
       <h2 class="section-title">Why Choose GACS?</h2>
-      <div class="section-subtitle" style="color: rgba(255,255,255,0.8);">We're committed to delivering excellence in every program</div>
+      <p class="section-sub">We're committed to delivering excellence in every program</p>
       <div class="features-grid">
-        <div class="feature-card">
-          <i class="fas fa-map-marked-alt"></i>
-          <h3>Nationwide Reach</h3>
-          <p>10,000+ participants across Luzon, Visayas, and Mindanao</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-chalkboard-user"></i>
-          <h3>Expert Facilitators</h3>
-          <p>Industry experts with real-world experience</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-handshake"></i>
-          <h3>Client Incentives</h3>
-          <p>20-30% credits for future programs</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-certificate"></i>
-          <h3>Certified Programs</h3>
-          <p>Recognized credentials for career growth</p>
-        </div>
+        <div class="feature-card"><i class="fas fa-map-marked-alt"></i><h3>Nationwide Reach</h3><p>10,000+ participants across Philippines</p></div>
+        <div class="feature-card"><i class="fas fa-chalkboard-user"></i><h3>Expert Facilitators</h3><p>Industry experts with real experience</p></div>
+        <div class="feature-card"><i class="fas fa-handshake"></i><h3>Client Incentives</h3><p>20-30% credits for future programs</p></div>
+        <div class="feature-card"><i class="fas fa-certificate"></i><h3>Certified Programs</h3><p>Recognized credentials for career growth</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="cta-section">
+  <section class="cta">
     <div class="container">
       <div class="cta-box">
         <h2>Ready to Elevate Your Team's Potential?</h2>
         <p>Join 20,000+ professionals who have transformed their careers with GACS training programs.</p>
-        <a href="./getstarted.html" class="btn-primary">Get Started Today <i class="fas fa-arrow-right"></i></a>
+        <a href="./getstarted.html" class="btn">Get Started Today →</a>
       </div>
     </div>
   </section>
@@ -588,13 +228,26 @@
 
 <footer>
   <div class="container">
-    <div class="footer-bottom">
-      <p>© 2025 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
-      <p style="margin-top: 0.5rem;">Empowering professionals across the Philippines with practical, high-impact learning solutions.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.75rem;">Contact: 0977-394-6417 | grayvantageacads@gmail.com</p>
-    </div>
+    <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>📞 0977-394-6417 | ✉️ grayvantageacads@gmail.com</p>
   </div>
 </footer>
 
+<script>
+  const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.card, .feature-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active');
+    }
+  });
+</script>
 </body>
 </html>

@@ -3,82 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GACS | Our Expertise | Specialized Training Areas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <title>GACS | Our Expertise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    .navbar { background: #ffffff; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e9eef3; }
-    .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 0.8rem 0; }
+    body { font-family: 'Inter', sans-serif; background: #f0f7fc; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeInUp 0.6s ease forwards; }
+    
+    .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon { background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
-    .logo-icon .gacs { font-size: 22px; letter-spacing: 1px; }
-    .logo-icon .small { font-size: 8px; letter-spacing: 1px; margin-top: 2px; }
-    .logo-text h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #1E3C5C 0%, #2C5A7A 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .logo-text span { font-weight: 500; font-size: 0.7rem; display: block; color: #4b6e8a; font-style: italic; }
-    .nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; font-weight: 600; color: #1e2f3e; transition: 0.2s; font-size: 0.9rem; }
-    .nav-links a:hover { color: #2c7da0; }
-    .btn-get-started { background: linear-gradient(135deg, #1e4c6b, #2c7da0); color: white; padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 700; transition: 0.2s; }
-    .btn-get-started:hover { background: linear-gradient(135deg, #0f3b55, #1e5a7a); transform: translateY(-2px); color: white !important; }
-    .section-title { text-align: center; font-size: 2.2rem; font-weight: 700; margin: 2rem 0 1rem; color: #0f2c3f; }
-    .expertise-detailed { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 3rem 0; }
-    .expertise-card { background: white; border-radius: 28px; padding: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-    .expertise-card:hover { transform: translateY(-5px); }
-    .expertise-card i { font-size: 2.8rem; color: #2c7da0; margin-bottom: 1rem; }
-    .expertise-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #1e4c6b; }
-    .expertise-card ul { padding-left: 1.2rem; color: #4a627a; line-height: 1.8; }
-    .expertise-banner { background: linear-gradient(135deg, #1E3C5C, #2C5A7A); border-radius: 48px; padding: 3rem; text-align: center; color: white; margin: 3rem 0; }
-    .btn-primary { background: #ffb347; color: #1e2f3e; padding: 0.8rem 2rem; border-radius: 40px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem; }
-    footer { background: #0e2a38; color: #b9cfdf; padding: 2.5rem 0; text-align: center; margin-top: 3rem; }
-    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 1rem; } .nav-links { justify-content: center; gap: 1rem; } }
+    .logo-icon { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
+    .logo-icon .gacs { font-size: 22px; }
+    .logo-icon .small { font-size: 7px; margin-top: 2px; }
+    .logo-text h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.65rem; display: block; color: #5a7d9a; }
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.9rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1B4F6E; font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+    .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; transition: all 0.3s ease !important; }
+    .btn-get-started:hover { transform: translateY(-2px); }
+    
+    .page-title { text-align: center; padding: 130px 0 40px; }
+    .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin: 40px 0; }
+    .expert-card { background: white; border-radius: 28px; padding: 30px; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+    .expert-card.visible { opacity: 1; transform: translateY(0); }
+    .expert-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .expert-card i { font-size: 2.5rem; color: #1B4F6E; margin-bottom: 15px; transition: transform 0.3s ease; }
+    .expert-card:hover i { transform: scale(1.1); }
+    .expert-card ul { padding-left: 20px; color: #5a7d9a; line-height: 1.8; }
+    .expert-banner { display: flex; align-items: center; gap: 40px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); border-radius: 48px; overflow: hidden; margin: 40px 0; flex-wrap: wrap; }
+    .banner-content { flex: 1; padding: 50px; color: white; }
+    .banner-content h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    .banner-content .btn { background: #ffb347; color: #0F2C3D; padding: 12px 30px; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: all 0.3s ease; margin-top: 15px; }
+    .banner-content .btn:hover { transform: translateY(-2px); }
+    .banner-image { flex: 0.8; height: 300px; }
+    .banner-image img { width: 100%; height: 100%; object-fit: cover; }
+    footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .banner-content { padding: 30px; } .banner-image { height: 200px; } }
   </style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="container nav-container">
-    <a href="home.html" class="logo">
-      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST. 2020</span></div>
-      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="expertise.html">Our Expertise</a>
-      <a href="whychooseus.html">Why Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="getstarted.html" class="btn-get-started">Get Started <i class="fas fa-arrow-right"></i></a>
-    </div>
+  <div class="nav-container">
+    <a href="./index.html" class="logo"><div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST.2020</span></div><div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div></a>
+    <div class="nav-links"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./expertise.html" class="active">Expertise</a><a href="./whychooseus.html">Why Us</a><a href="./contact.html">Contact</a><a href="./getstarted.html" class="btn-get-started">Get Started →</a></div>
   </div>
 </header>
 
 <main>
   <div class="container">
-    <h1 class="section-title">Our Expertise</h1>
-    <div class="expertise-detailed">
-      <div class="expertise-card"><i class="fas fa-chart-line"></i><h3>Business Administration</h3><ul><li>Strategic Management</li><li>Operations Excellence</li><li>Financial Analysis</li><li>Marketing Strategies</li></ul></div>
-      <div class="expertise-card"><i class="fas fa-users"></i><h3>Leadership Development</h3><ul><li>Executive Coaching</li><li>Team Building</li><li>Change Management</li><li>Emotional Intelligence</li></ul></div>
-      <div class="expertise-card"><i class="fas fa-hotel"></i><h3>Tourism & Hospitality</h3><ul><li>Customer Service Excellence</li><li>Hotel Operations</li><li>Event Management</li><li>Travel Industry Trends</li></ul></div>
-      <div class="expertise-card"><i class="fas fa-file-alt"></i><h3>Office Administration</h3><ul><li>Certified Professional Program</li><li>Records Management</li><li>Business Communication</li><li>Administrative Skills</li></ul></div>
-      <div class="expertise-card"><i class="fas fa-laptop-code"></i><h3>Information Technology</h3><ul><li>Digital Transformation</li><li>IT Project Management</li><li>Cybersecurity Basics</li><li>Data Analytics</li></ul></div>
-      <div class="expertise-card"><i class="fas fa-brain"></i><h3>Professional Skills</h3><ul><li>Time Management</li><li>Public Speaking</li><li>Conflict Resolution</li><li>Career Development</li></ul></div>
+    <div class="page-title fade-up"><h1>Our Expertise</h1></div>
+    <div class="expertise-grid">
+      <div class="expert-card"><i class="fas fa-chart-line"></i><h3>Business Administration</h3><ul><li>Strategic Management</li><li>Operations Excellence</li><li>Marketing Strategies</li><li>Financial Analysis</li></ul></div>
+      <div class="expert-card"><i class="fas fa-users"></i><h3>Leadership Development</h3><ul><li>Executive Coaching</li><li>Team Building</li><li>Change Management</li><li>Emotional Intelligence</li></ul></div>
+      <div class="expert-card"><i class="fas fa-hotel"></i><h3>Tourism & Hospitality</h3><ul><li>Customer Service Excellence</li><li>Hotel Operations</li><li>Event Management</li><li>Travel Industry Trends</li></ul></div>
+      <div class="expert-card"><i class="fas fa-file-alt"></i><h3>Office Administration</h3><ul><li>Certified Professional Program</li><li>Records Management</li><li>Business Communication</li><li>Administrative Skills</li></ul></div>
+      <div class="expert-card"><i class="fas fa-laptop-code"></i><h3>Information Technology</h3><ul><li>Digital Transformation</li><li>IT Project Management</li><li>Cybersecurity Basics</li><li>Data Analytics</li></ul></div>
+      <div class="expert-card"><i class="fas fa-brain"></i><h3>Professional Skills</h3><ul><li>Time Management</li><li>Public Speaking</li><li>Conflict Resolution</li><li>Career Development</li></ul></div>
     </div>
-    <div class="expertise-banner">
-      <h2>Ready to Enhance Your Team's Skills?</h2>
-      <p>Let our expert facilitators design a customized program for your organization.</p>
-      <a href="getstarted.html" class="btn-primary">Get Started Today →</a>
+
+    <div class="expert-banner">
+      <div class="banner-content">
+        <h2>Ready to Enhance Your Team's Skills?</h2>
+        <p>Let our expert facilitators design a customized program for your organization. We deliver practical, industry-based learning.</p>
+        <a href="./getstarted.html" class="btn">Get Started →</a>
+      </div>
+      <div class="banner-image">
+        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=500&h=300&fit=crop" alt="Professional skills training">
+      </div>
     </div>
   </div>
 </main>
 
-<footer>
-  <div class="container">
-    <p>© 2025 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
-  </div>
-</footer>
+<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
+<script>const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 }); document.querySelectorAll('.expert-card').forEach(el => observer.observe(el)); document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
 </body>
 </html>

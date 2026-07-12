@@ -11,42 +11,28 @@
     body { font-family: 'Inter', sans-serif; background: #f0f7fc; color: #1a2c3e; overflow-x: hidden; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
-    /* Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     
     .fade-up { animation: fadeInUp 0.8s ease forwards; }
     .fade-left { animation: fadeInLeft 0.8s ease forwards; }
     .fade-right { animation: fadeInRight 0.8s ease forwards; }
     .scale-in { animation: scaleIn 0.6s ease forwards; }
     
-    /* Navigation */
     .navbar { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
     .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease; }
-    .logo-icon:hover { transform: scale(1.05); }
-    .logo-icon .gacs { font-size: 22px; letter-spacing: 1px; }
-    .logo-icon .small { font-size: 7px; margin-top: 2px; }
-    .logo-text h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .logo-text span { font-size: 0.65rem; display: block; color: #5a7d9a; }
+    
+    /* Logo */
+    .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .logo img { height: 70px; width: auto; display: block; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .logo-text h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #5a7d9a; }
     
     .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.9rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
     .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
     .nav-links a:hover::after { width: 100%; }
     .nav-links a.active { color: #1B4F6E; font-weight: 700; }
@@ -55,8 +41,7 @@
     .btn-get-started:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27, 79, 110, 0.4); }
     .btn-get-started::after { display: none; }
     
-    /* Hero Section with Image */
-    .hero { padding: 130px 0 80px; background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%); }
+    .hero { padding: 140px 0 80px; background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%); }
     .hero-grid { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
     .hero-content { flex: 1; }
     .hero-image { flex: 1; }
@@ -75,14 +60,12 @@
     .stat h3 { font-size: 2.2rem; font-weight: 800; color: #1B4F6E; }
     .stat span { color: #5a7d9a; font-size: 0.85rem; }
     
-    /* Trusted Section */
     .trusted { padding: 50px 0; background: white; border-top: 1px solid #eef2f8; border-bottom: 1px solid #eef2f8; text-align: center; }
     .trusted p { color: #8ba3b8; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
     .logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
     .logos span { color: #5a7d9a; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; cursor: default; }
     .logos span:hover { color: #1B4F6E; transform: translateY(-2px); }
     
-    /* Expertise Section */
     .expertise { padding: 80px 0; background: white; }
     .section-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; color: #0a2a3b; }
     .section-sub { text-align: center; color: #5a7d9a; max-width: 600px; margin: 0 auto 50px; }
@@ -95,7 +78,6 @@
     .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
     .card p { color: #5a7d9a; font-size: 0.85rem; line-height: 1.6; }
     
-    /* Features Section */
     .features { padding: 80px 0; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white; }
     .features .section-title { color: white; }
     .features .section-sub { color: rgba(255,255,255,0.8); }
@@ -106,21 +88,19 @@
     .feature-card i { font-size: 2rem; margin-bottom: 15px; color: #ffb347; transition: transform 0.3s ease; }
     .feature-card:hover i { transform: scale(1.1); }
     
-    /* CTA Section */
     .cta { padding: 80px 0; background: white; text-align: center; }
     .cta-box { background: linear-gradient(135deg, #f8fafc, #eef2f8); border-radius: 48px; padding: 60px; transition: transform 0.3s ease; }
     .cta-box:hover { transform: translateY(-5px); }
     .cta-box h2 { font-size: 2rem; margin-bottom: 15px; }
     .cta-box p { color: #5a7d9a; margin-bottom: 25px; }
     
-    /* Footer */
     footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; }
     footer p { margin: 5px 0; }
     
     @media (max-width: 768px) {
       .nav-container { flex-direction: column; gap: 15px; }
       .nav-links { justify-content: center; gap: 15px; }
-      .hero { padding: 120px 0 60px; }
+      .hero { padding: 130px 0 60px; }
       .hero-content h1 { font-size: 2rem; }
       .hero-grid { flex-direction: column; text-align: center; }
       .stats { justify-content: center; }
@@ -128,6 +108,8 @@
       .cta-box h2 { font-size: 1.5rem; }
       .logos { gap: 20px; }
       .logos span { font-size: 0.75rem; }
+      .logo img { height: 50px; }
+      .logo-text h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -136,7 +118,7 @@
 <header class="navbar">
   <div class="nav-container">
     <a href="./index.html" class="logo">
-      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST.2020</span></div>
+      <img src="./logo.png" alt="GACS Logo">
       <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
     <div class="nav-links">
@@ -169,7 +151,7 @@
         </div>
       </div>
       <div class="hero-image fade-right">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" alt="Professional training session with team">
+        <img src="./home-hero.jpg" alt="Professional training session with team">
       </div>
     </div>
   </section>

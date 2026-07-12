@@ -12,18 +12,21 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
     .fade-up { animation: fadeInUp 0.6s ease forwards; }
+    .fade-left { animation: fadeInLeft 0.6s ease forwards; }
+    .fade-right { animation: fadeInRight 0.6s ease forwards; }
     
     .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); width: 55px; height: 55px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; }
-    .logo-icon .gacs { font-size: 22px; }
-    .logo-icon .small { font-size: 7px; margin-top: 2px; }
-    .logo-text h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .logo-text span { font-size: 0.65rem; display: block; color: #5a7d9a; }
+    .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .logo img { height: 70px; width: auto; display: block; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .logo-text h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #5a7d9a; }
     .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.9rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
     .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
     .nav-links a:hover::after { width: 100%; }
     .nav-links a.active { color: #1B4F6E; font-weight: 700; }
@@ -31,7 +34,7 @@
     .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; transition: all 0.3s ease !important; }
     .btn-get-started:hover { transform: translateY(-2px); }
     
-    .page-title { text-align: center; padding: 130px 0 40px; }
+    .page-title { text-align: center; padding: 140px 0 40px; }
     .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
     .about-grid { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; margin: 40px 0; }
     .about-image { flex: 1; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
@@ -49,7 +52,7 @@
     .value { background: #e8f0f5; padding: 10px 25px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; cursor: default; }
     .value:hover { background: #1B4F6E; color: white; transform: translateY(-3px); }
     footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
-    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .about-grid { flex-direction: column; } }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .about-grid { flex-direction: column; } .logo img { height: 50px; } .logo-text h1 { font-size: 1.2rem; } }
   </style>
 </head>
 <body>
@@ -57,7 +60,7 @@
 <header class="navbar">
   <div class="nav-container">
     <a href="./index.html" class="logo">
-      <div class="logo-icon"><span class="gacs">GACS</span><span class="small">EST.2020</span></div>
+      <img src="./logo.png" alt="GACS Logo">
       <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
     <div class="nav-links">
@@ -78,7 +81,7 @@
     
     <div class="about-grid">
       <div class="about-image fade-left">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop" alt="Team collaboration and meeting">
+        <img src="./about-team.jpg" alt="Team collaboration and meeting">
       </div>
       <div class="about-content fade-right">
         <p><strong>GrayVantage Academic & Corporate Services (GACS)</strong> is a premier provider of nationwide training, seminars, and professional development programs tailored for schools, organizations, and companies across the Philippines. We specialize in delivering practical, high-impact learning experiences in Business Administration, Leadership, Tourism and Hospitality, Office Administration, Information Technology, and Professional Skills Development.</p>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GACS | Founder | Mr. Augusto M. Acosta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f7fc; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    .fade-up { animation: fadeInUp 0.6s ease forwards; }
+    .fade-left { animation: fadeInLeft 0.6s ease forwards; }
+    .fade-right { animation: fadeInRight 0.6s ease forwards; }
+    
+    .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .logo img { height: 70px; width: auto; display: block; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .logo-text h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #5a7d9a; }
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1B4F6E; font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+    .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; transition: all 0.3s ease !important; }
+    .btn-get-started:hover { transform: translateY(-2px); }
+    
+    .page-title { text-align: center; padding: 140px 0 40px; }
+    .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
+    .page-title p { color: #5a7d9a; margin-top: 10px; }
+    
+    /* Founder Section */
+    .founder-grid { display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap; margin: 30px 0 50px; }
+    .founder-image { flex: 1; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .founder-image:hover { transform: translateY(-5px); }
+    .founder-image img { width: 100%; height: auto; display: block; }
+    .founder-content { flex: 1.5; }
+    .founder-content h2 { font-size: 1.8rem; color: #0a2a3b; margin-bottom: 5px; }
+    .founder-content .title { color: #1B4F6E; font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; display: block; }
+    .founder-content p { color: #4a627a; line-height: 1.7; margin-bottom: 15px; }
+    .founder-content p strong { color: #0a2a3b; }
+    
+    .info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+    .info-card { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border-left: 4px solid #1B4F6E; }
+    .info-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .info-card i { font-size: 2rem; color: #1B4F6E; margin-bottom: 10px; }
+    .info-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #0a2a3b; }
+    .info-card p { color: #5a7d9a; line-height: 1.6; font-size: 0.9rem; }
+    
+    .cta-section { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); border-radius: 48px; padding: 50px; text-align: center; color: white; margin: 40px 0; transition: transform 0.3s ease; }
+    .cta-section:hover { transform: translateY(-5px); }
+    .cta-section h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    .cta-section p { opacity: 0.9; margin-bottom: 20px; }
+    .cta-section .btn { background: #ffb347; color: #0F2C3D; padding: 12px 30px; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: all 0.3s ease; }
+    .cta-section .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    
+    footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
+    
+    @media (max-width: 768px) { 
+      .nav-container { flex-direction: column; gap: 15px; } 
+      .nav-links { justify-content: center; } 
+      .page-title h1 { font-size: 1.8rem; } 
+      .founder-grid { flex-direction: column; }
+      .founder-content h2 { font-size: 1.5rem; }
+      .logo img { height: 50px; }
+      .logo-text h1 { font-size: 1.2rem; }
+      .cta-section { padding: 30px; }
+      .cta-section h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="./index.html" class="logo">
+      <img src="./logo.png" alt="GACS Logo">
+      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./expertise.html">Expertise</a>
+      <a href="./whychooseus.html">Why Us</a>
+      <a href="./founder.html" class="active">Founder</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-title fade-up">
+      <h1>Meet Our Founder</h1>
+      <p>The visionary behind GrayVantage Academic & Corporate Services</p>
+    </div>
+    
+    <div class="founder-grid">
+      <div class="founder-image fade-left">
+        <img src="./founder-image.jpg" alt="Mr. Augusto M. Acosta - Founder of GACS">
+      </div>
+      <div class="founder-content fade-right">
+        <h2>Mr. Augusto M. Acosta</h2>
+        <span class="title">Founder & Lead Consultant, GACS</span>
+        
+        <p><strong>Mr. Augusto M. Acosta</strong> is the visionary founder of GrayVantage Academic & Corporate Services. He possesses a strong dual background in corporate management, education, and instructional training, making him uniquely qualified to bridge the gap between industry needs and academic excellence.</p>
+        
+        <p><strong>Corporate Experience:</strong><br>
+        Mr. Acosta served as a <strong>Manager at Jollibee Foods Corporation (Franchise Store)</strong> for nearly seven years. In this role, he managed Operations, Marketing, Delivery, and Cleanliness & Sanitation, while also serving as a Food Safety Leader.</p>
+        
+        <p><strong>Academic & Training Background:</strong><br>
+        He is a passionate educator, teaching business-related subjects as a <strong>College Instructor</strong> at higher education institutions, as well as a <strong>Senior High School Teacher</strong>. Leveraging his real-world corporate expertise and teaching experience, he established <strong>GrayVantage</strong> to deliver high-impact webinars, seminars, and training programs aimed at empowering students, professionals, and organizations nationwide.</p>
+      </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-cards">
+      <div class="info-card fade-up">
+        <i class="fas fa-briefcase"></i>
+        <h3>Corporate Experience</h3>
+        <p>Nearly 7 years as Manager at Jollibee Foods Corporation, managing Operations, Marketing, Delivery, and Food Safety.</p>
+      </div>
+      <div class="info-card fade-up" style="animation-delay: 0.2s;">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Academic Background</h3>
+        <p>Passionate educator teaching business subjects as a College Instructor and Senior High School Teacher.</p>
+      </div>
+      <div class="info-card fade-up" style="animation-delay: 0.4s;">
+        <i class="fas fa-rocket"></i>
+        <h3>Vision & Mission</h3>
+        <p>Founded GrayVantage to bridge industry and academia, empowering professionals nationwide through practical training.</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section fade-up">
+      <h2>Connect With Our Founder</h2>
+      <p>Looking for specific training programs, consulting services, or want to connect with Mr. Acosta?</p>
+      <a href="./contact.html" class="btn">Get in Touch →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>✉️ acostaaugusto24@gmail.com</p>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
+</body>
+</html>

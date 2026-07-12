@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GACS | Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f7fc; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    .fade-up { animation: fadeInUp 0.6s ease forwards; }
+    .fade-left { animation: fadeInLeft 0.6s ease forwards; }
+    .fade-right { animation: fadeInRight 0.6s ease forwards; }
+    
+    .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .logo img { height: 70px; width: auto; display: block; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .logo-text h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .logo-text span { font-size: 0.7rem; display: block; color: #5a7d9a; }
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: #2c4556; font-weight: 600; font-size: 0.95rem; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #1B4F6E; font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+    .btn-get-started { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white !important; padding: 8px 22px !important; border-radius: 40px; transition: all 0.3s ease !important; }
+    .btn-get-started:hover { transform: translateY(-2px); }
+    
+    .page-title { text-align: center; padding: 140px 0 40px; }
+    .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
+    .contact-grid { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 0; align-items: stretch; }
+    .contact-info { flex: 1; background: #1B4F6E; color: white; border-radius: 32px; padding: 40px; transition: transform 0.3s ease; }
+    .contact-info:hover { transform: translateY(-5px); }
+    .contact-info i { width: 30px; margin-right: 10px; color: #ffb347; }
+    .contact-info p { margin: 18px 0; line-height: 1.6; }
+    .contact-form { flex: 1.2; background: white; border-radius: 32px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+    .contact-form:hover { transform: translateY(-5px); }
+    .form-group { margin-bottom: 20px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 16px; font-family: inherit; font-size: 0.9rem; background: #f8fafc; transition: all 0.3s ease; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1B4F6E; box-shadow: 0 0 0 3px rgba(27,79,110,0.1); background: white; }
+    .btn-submit { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white; padding: 14px; border: none; border-radius: 40px; font-weight: 600; cursor: pointer; width: 100%; font-size: 1rem; transition: all 0.3s ease; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .map { display: flex; align-items: center; gap: 30px; background: #e8f0f5; border-radius: 32px; padding: 40px; margin: 40px 0; flex-wrap: wrap; transition: transform 0.3s ease; }
+    .map:hover { transform: translateY(-5px); }
+    .map-content { flex: 1; text-align: center; }
+    .map-content i { font-size: 3rem; color: #1B4F6E; margin-bottom: 15px; display: block; }
+    .map-image { flex: 1; border-radius: 24px; overflow: hidden; }
+    .map-image img { width: 100%; height: auto; border-radius: 24px; }
+    footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .contact-info, .contact-form { padding: 25px; } .map { flex-direction: column; } .logo img { height: 50px; } .logo-text h1 { font-size: 1.2rem; } }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="./index.html" class="logo">
+      <img src="./logo.png" alt="GACS Logo">
+      <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
+    </a>
+    <div class="nav-links"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./expertise.html">Expertise</a><a href="./whychooseus.html">Why Us</a><a href="./contact.html" class="active">Contact</a><a href="./getstarted.html" class="btn-get-started">Get Started →</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-title fade-up"><h1>Get In Touch</h1></div>
+    
+    <div class="contact-grid">
+      <div class="contact-info fade-left">
+        <h3><i class="fas fa-building"></i> GACS</h3>
+        <p><i class="fas fa-user-tie"></i> <strong>Mr. Augusto Acosta</strong><br>Founder and Lead Consultant</p>
+        <p><i class="fas fa-phone-alt"></i> 0977-394-6417</p>
+        <p><i class="fas fa-envelope"></i> grayvantageacads@gmail.com</p>
+        <p><i class="fas fa-envelope-open-text"></i> acostaaugusto24@gmail.com</p>
+        <hr style="margin: 20px 0; border-color: #2c5a7a;">
+        <p><strong>Ready to elevate your team?</strong><br>Partner with us for customized training, webinars, and corporate solutions.</p>
+      </div>
+      
+      <div class="contact-form fade-right">
+        <h3 style="margin-bottom: 20px;">Send us a message</h3>
+        <form>
+          <div class="form-group"><input type="text" placeholder="Your Full Name" required></div>
+          <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+          <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+          <div class="form-group"><select><option>I'm interested in...</option><option>Corporate Training</option><option>Webinars</option><option>Certification Programs</option><option>Speaking Engagement</option><option>Customized Program</option></select></div>
+          <div class="form-group"><textarea rows="4" placeholder="Tell us about your training needs..."></textarea></div>
+          <button type="submit" class="btn-submit">Send Inquiry →</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="map">
+      <div class="map-content">
+        <i class="fas fa-globe-asia"></i>
+        <p><strong>Serving Nationwide across the Philippines</strong></p>
+        <p>Face-to-face training available in Metro Manila, Luzon, Visayas, and Mindanao. Virtual programs accessible anywhere.</p>
+      </div>
+      <div class="map-image">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?w=400&h=250&fit=crop" alt="Philippines map concept">
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
+<script>document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
+</body>
+</html>

@@ -39,7 +39,8 @@
     .form-grid { display: flex; gap: 40px; flex-wrap: wrap; }
     .form-side { flex: 1.5; }
     .image-side { flex: 1; }
-    .image-side img { width: 100%; border-radius: 32px; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .image-side img { width: 100%; border-radius: 32px; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .image-side img:hover { transform: scale(1.02); }
     .form-group { margin-bottom: 20px; }
     .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 16px; font-family: inherit; font-size: 0.9rem; background: #f8fafc; transition: all 0.3s ease; }
     .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1B4F6E; box-shadow: 0 0 0 3px rgba(27,79,110,0.1); background: white; }
@@ -91,14 +92,20 @@
           </div>
         </div>
         <div class="image-side fade-left">
-          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=500&fit=crop" alt="Business consultation">
+          <img src="./getstarted-image.jpg" alt="Business consultation">
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
+<footer>
+  <div class="container">
+    <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>✉️ acostaaugusto24@gmail.com</p>
+  </div>
+</footer>
+
 <script>document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
 </body>
 </html>

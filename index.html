@@ -24,7 +24,6 @@
     .navbar { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
     .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
-    /* Logo */
     .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
     .logo img { height: 70px; width: auto; display: block; transition: transform 0.3s ease; }
     .logo img:hover { transform: scale(1.05); }
@@ -41,24 +40,97 @@
     .btn-get-started:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27, 79, 110, 0.4); }
     .btn-get-started::after { display: none; }
     
-    .hero { padding: 140px 0 80px; background: linear-gradient(135deg, #f0f7fc 0%, #e8f0f5 100%); }
-    .hero-grid { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-    .hero-content { flex: 1; }
-    .hero-image { flex: 1; }
-    .hero-image img { width: 100%; border-radius: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
-    .hero-image img:hover { transform: scale(1.02); }
-    .hero-badge { background: linear-gradient(135deg, #1B4F6E, #2a6d94); display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; color: white; margin-bottom: 25px; letter-spacing: 1.5px; }
-    .hero-content h1 { font-size: 3.2rem; font-weight: 800; color: #0a2a3b; margin-bottom: 20px; line-height: 1.2; }
-    .hero-content p { font-size: 1.1rem; color: #5a7d9a; margin-bottom: 30px; }
-    .btn { background: linear-gradient(135deg, #0F2C3D, #1B4F6E); color: white; padding: 12px 32px; border-radius: 50px; text-decoration: none; display: inline-block; margin: 5px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(27, 79, 110, 0.3); }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(27, 79, 110, 0.4); }
-    .btn-outline { background: transparent; border: 2px solid #1B4F6E; color: #1B4F6E; box-shadow: none; }
-    .btn-outline:hover { background: #1B4F6E; color: white; }
-    .stats { display: flex; justify-content: flex-start; gap: 50px; margin-top: 50px; flex-wrap: wrap; }
+    .hero { 
+      padding: 140px 0 80px; 
+      background-image: url('./home-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    
+    .hero-grid { 
+      display: flex; 
+      align-items: center; 
+      gap: 50px; 
+      flex-wrap: wrap; 
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content { 
+      flex: 1; 
+    }
+    .hero-badge { 
+      background: linear-gradient(135deg, #1B4F6E, #2a6d94); 
+      display: inline-block; 
+      padding: 6px 18px; 
+      border-radius: 40px; 
+      font-size: 0.75rem; 
+      font-weight: 700; 
+      color: white; 
+      margin-bottom: 25px; 
+      letter-spacing: 1.5px; 
+    }
+    .hero-content h1 { 
+      font-size: 3.2rem; 
+      font-weight: 800; 
+      color: #ffffff; 
+      margin-bottom: 20px; 
+      line-height: 1.2; 
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero-content p { 
+      font-size: 1.1rem; 
+      color: rgba(255,255,255,0.9); 
+      margin-bottom: 30px; 
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      max-width: 550px;
+    }
+    .btn { 
+      background: linear-gradient(135deg, #0F2C3D, #1B4F6E); 
+      color: white; 
+      padding: 12px 32px; 
+      border-radius: 50px; 
+      text-decoration: none; 
+      display: inline-block; 
+      margin: 5px; 
+      font-weight: 600; 
+      transition: all 0.3s ease; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
+    .btn-outline { 
+      background: transparent; 
+      border: 2px solid #ffffff; 
+      color: #ffffff; 
+      box-shadow: none; 
+    }
+    .btn-outline:hover { background: #1B4F6E; color: white; border-color: #1B4F6E; }
+    .stats { 
+      display: flex; 
+      justify-content: flex-start; 
+      gap: 50px; 
+      margin-top: 50px; 
+      flex-wrap: wrap; 
+    }
     .stat { transition: transform 0.3s ease; }
     .stat:hover { transform: translateY(-5px); }
-    .stat h3 { font-size: 2.2rem; font-weight: 800; color: #1B4F6E; }
-    .stat span { color: #5a7d9a; font-size: 0.85rem; }
+    .stat h3 { font-size: 2.2rem; font-weight: 800; color: #ffb347; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .stat span { color: rgba(255,255,255,0.85); font-size: 0.85rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
     
     .trusted { padding: 50px 0; background: white; border-top: 1px solid #eef2f8; border-bottom: 1px solid #eef2f8; text-align: center; }
     .trusted p { color: #8ba3b8; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
@@ -100,9 +172,10 @@
     @media (max-width: 768px) {
       .nav-container { flex-direction: column; gap: 15px; }
       .nav-links { justify-content: center; gap: 15px; }
-      .hero { padding: 130px 0 60px; }
+      .hero { padding: 130px 0 60px; min-height: auto; }
       .hero-content h1 { font-size: 2rem; }
       .hero-grid { flex-direction: column; text-align: center; }
+      .hero-content p { max-width: 100%; }
       .stats { justify-content: center; }
       .cta-box { padding: 30px; }
       .cta-box h2 { font-size: 1.5rem; }
@@ -149,9 +222,6 @@
           <div class="stat"><h3>50+</h3><span>Institutional Engagements</span></div>
           <div class="stat"><h3>300+</h3><span>Certified Professionals</span></div>
         </div>
-      </div>
-      <div class="hero-image fade-right">
-        <img src="./home-hero.jpg" alt="Professional training session with team">
       </div>
     </div>
   </section>
@@ -211,6 +281,7 @@
 <footer>
   <div class="container">
     <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>✉️ acostaaugusto24@gmail.com</p>
   </div>
 </footer>
 

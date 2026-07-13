@@ -31,22 +31,91 @@
     
     .page-title { text-align: center; padding: 140px 0 40px; }
     .page-title h1 { font-size: 2.5rem; color: #0a2a3b; }
-    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin: 40px 0; }
-    .expert-card { background: white; border-radius: 28px; padding: 30px; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+    
+    /* Expertise Cards - Images Removed, Content Centered */
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin: 40px 0; }
+    .expert-card { 
+      background: white; 
+      border-radius: 28px; 
+      overflow: hidden; 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+      transition: all 0.4s ease; 
+      opacity: 0; 
+      transform: translateY(30px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 25px;
+      min-height: 280px;
+    }
     .expert-card.visible { opacity: 1; transform: translateY(0); }
-    .expert-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .expert-card i { font-size: 2.5rem; color: #1B4F6E; margin-bottom: 15px; transition: transform 0.3s ease; }
-    .expert-card:hover i { transform: scale(1.1); }
-    .expert-card ul { padding-left: 20px; color: #5a7d9a; line-height: 1.8; }
-    .expert-banner { display: flex; align-items: center; gap: 40px; background: linear-gradient(135deg, #0F2C3D, #1B4F6E); border-radius: 48px; overflow: hidden; margin: 40px 0; flex-wrap: wrap; }
-    .banner-content { flex: 1; padding: 50px; color: white; }
-    .banner-content h2 { font-size: 1.8rem; margin-bottom: 15px; }
-    .banner-content .btn { background: #ffb347; color: #0F2C3D; padding: 12px 30px; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 600; transition: all 0.3s ease; margin-top: 15px; }
-    .banner-content .btn:hover { transform: translateY(-2px); }
-    .banner-image { flex: 0.8; height: 300px; }
-    .banner-image img { width: 100%; height: 100%; object-fit: cover; }
+    .expert-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .expert-card .card-content { 
+      text-align: center; 
+      width: 100%;
+    }
+    .expert-card .card-content i { 
+      font-size: 2.8rem; 
+      color: #1B4F6E; 
+      margin-bottom: 18px; 
+      display: block; 
+      transition: transform 0.3s ease; 
+    }
+    .expert-card:hover .card-content i { transform: scale(1.1); }
+    .expert-card .card-content h3 { 
+      font-size: 1.3rem; 
+      margin-bottom: 12px; 
+      color: #0a2a3b; 
+    }
+    .expert-card .card-content ul { 
+      padding-left: 0; 
+      list-style: none;
+      color: #5a7d9a; 
+      line-height: 1.8; 
+      font-size: 0.9rem; 
+      text-align: center;
+    }
+    
+    /* Blue Banner - Text Only, No Image */
+    .expert-banner { 
+      background: linear-gradient(135deg, #0F2C3D, #1B4F6E); 
+      border-radius: 48px; 
+      padding: 50px; 
+      text-align: center; 
+      color: white; 
+      margin: 40px 0; 
+      transition: transform 0.3s ease; 
+    }
+    .expert-banner:hover { transform: translateY(-5px); }
+    .expert-banner h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    .expert-banner p { margin-bottom: 20px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .expert-banner .btn { 
+      background: #ffb347; 
+      color: #0F2C3D; 
+      padding: 12px 30px; 
+      border-radius: 40px; 
+      text-decoration: none; 
+      display: inline-block; 
+      font-weight: 600; 
+      transition: all 0.3s ease; 
+      margin-top: 15px; 
+    }
+    .expert-banner .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    
     footer { background: #0a2a3b; color: #b9cfdf; text-align: center; padding: 40px 0; margin-top: 40px; }
-    @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .nav-links { justify-content: center; } .page-title h1 { font-size: 1.8rem; } .banner-content { padding: 30px; } .banner-image { height: 200px; } .logo img { height: 50px; } .logo-text h1 { font-size: 1.2rem; } }
+    
+    @media (max-width: 768px) { 
+      .nav-container { flex-direction: column; gap: 15px; } 
+      .nav-links { justify-content: center; } 
+      .page-title h1 { font-size: 1.8rem; } 
+      .expert-banner { padding: 30px; } 
+      .expert-banner h2 { font-size: 1.4rem; }
+      .logo img { height: 50px; } 
+      .logo-text h1 { font-size: 1.2rem; } 
+      .expertise-grid { grid-template-columns: 1fr; }
+      .expert-card { min-height: 220px; padding: 25px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -57,36 +126,129 @@
       <img src="./logo.png" alt="GACS Logo">
       <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
-    <div class="nav-links"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./expertise.html" class="active">Expertise</a><a href="./whychooseus.html">Why Us</a><a href="./contact.html">Contact</a><a href="./getstarted.html" class="btn-get-started">Get Started →</a></div>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./expertise.html" class="active">Expertise</a>
+      <a href="./whychooseus.html">Why Us</a>
+      <a href="./founder.html">Founder</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
+    </div>
   </div>
 </header>
 
 <main>
   <div class="container">
     <div class="page-title fade-up"><h1>Our Expertise</h1></div>
+    
     <div class="expertise-grid">
-      <div class="expert-card"><i class="fas fa-chart-line"></i><h3>Business Administration</h3><ul><li>Strategic Management</li><li>Operations Excellence</li><li>Marketing Strategies</li><li>Financial Analysis</li></ul></div>
-      <div class="expert-card"><i class="fas fa-users"></i><h3>Leadership Development</h3><ul><li>Executive Coaching</li><li>Team Building</li><li>Change Management</li><li>Emotional Intelligence</li></ul></div>
-      <div class="expert-card"><i class="fas fa-hotel"></i><h3>Tourism & Hospitality</h3><ul><li>Customer Service Excellence</li><li>Hotel Operations</li><li>Event Management</li><li>Travel Industry Trends</li></ul></div>
-      <div class="expert-card"><i class="fas fa-file-alt"></i><h3>Office Administration</h3><ul><li>Certified Professional Program</li><li>Records Management</li><li>Business Communication</li><li>Administrative Skills</li></ul></div>
-      <div class="expert-card"><i class="fas fa-laptop-code"></i><h3>Information Technology</h3><ul><li>Digital Transformation</li><li>IT Project Management</li><li>Cybersecurity Basics</li><li>Data Analytics</li></ul></div>
-      <div class="expert-card"><i class="fas fa-brain"></i><h3>Professional Skills</h3><ul><li>Time Management</li><li>Public Speaking</li><li>Conflict Resolution</li><li>Career Development</li></ul></div>
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-chart-line"></i>
+          <h3>Business Administration</h3>
+          <ul>
+            <li>Strategic Management</li>
+            <li>Operations Excellence</li>
+            <li>Marketing Strategies</li>
+            <li>Financial Analysis</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-users"></i>
+          <h3>Leadership Development</h3>
+          <ul>
+            <li>Executive Coaching</li>
+            <li>Team Building</li>
+            <li>Change Management</li>
+            <li>Emotional Intelligence</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-hotel"></i>
+          <h3>Tourism & Hospitality</h3>
+          <ul>
+            <li>Customer Service Excellence</li>
+            <li>Hotel Operations</li>
+            <li>Event Management</li>
+            <li>Travel Industry Trends</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-file-alt"></i>
+          <h3>Office Administration</h3>
+          <ul>
+            <li>Certified Professional Program</li>
+            <li>Records Management</li>
+            <li>Business Communication</li>
+            <li>Administrative Skills</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Information Technology</h3>
+          <ul>
+            <li>Digital Transformation</li>
+            <li>IT Project Management</li>
+            <li>Cybersecurity Basics</li>
+            <li>Data Analytics</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="expert-card">
+        <div class="card-content">
+          <i class="fas fa-brain"></i>
+          <h3>Professional Skills</h3>
+          <ul>
+            <li>Time Management</li>
+            <li>Public Speaking</li>
+            <li>Conflict Resolution</li>
+            <li>Career Development</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="expert-banner">
-      <div class="banner-content">
-        <h2>Ready to Enhance Your Team's Skills?</h2>
-        <p>Let our expert facilitators design a customized program for your organization. We deliver practical, industry-based learning.</p>
-        <a href="./getstarted.html" class="btn">Get Started →</a>
-      </div>
-      <div class="banner-image">
-        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=500&h=300&fit=crop" alt="Professional skills training">
-      </div>
+    <!-- Blue Banner - Text Only, No Image -->
+    <div class="expert-banner fade-up">
+      <h2>Ready to Enhance Your Team's Skills?</h2>
+      <p>Let our expert facilitators design a customized program for your organization. We deliver practical, industry-based learning.</p>
+      <a href="./getstarted.html" class="btn">Get Started →</a>
     </div>
   </div>
 </main>
 
-<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
-<script>const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 }); document.querySelectorAll('.expert-card').forEach(el => observer.observe(el)); document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
+<footer>
+  <div class="container">
+    <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>✉️ acostaaugusto24@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => { 
+    entries.forEach(entry => { 
+      if (entry.isIntersecting) entry.target.classList.add('visible'); 
+    }); 
+  }, { threshold: 0.1 }); 
+  document.querySelectorAll('.expert-card').forEach(el => observer.observe(el)); 
+  document.querySelectorAll('.nav-links a').forEach(link => { 
+    if (link.href === window.location.href) link.classList.add('active'); 
+  });
+</script>
 </body>
 </html>

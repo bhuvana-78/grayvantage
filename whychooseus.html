@@ -58,7 +58,16 @@
       <img src="./logo.png" alt="GACS Logo">
       <div class="logo-text"><h1>GRAYVANTAGE</h1><span>Academic & Corporate Service</span></div>
     </a>
-    <div class="nav-links"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./expertise.html">Expertise</a><a href="./whychooseus.html" class="active">Why Us</a><a href="./contact.html">Contact</a><a href="./getstarted.html" class="btn-get-started">Get Started →</a></div>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./expertise.html">Expertise</a>
+      <a href="./whychooseus.html" class="active">Why Us</a>
+      <a href="./founder.html">Founder</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./getstarted.html" class="btn-get-started">Get Started →</a>
+    </div>
   </div>
 </header>
 
@@ -90,7 +99,13 @@
   </div>
 </main>
 
-<footer><div class="container"><p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p></div></footer>
+<footer>
+  <div class="container">
+    <p>© 2026 GACS | GrayVantage Academic & Corporate Service — INNOVATE. LEARN. LEAD.</p>
+    <p>✉️ acostaaugusto24@gmail.com</p>
+  </div>
+</footer>
+
 <script>const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 }); document.querySelectorAll('.why-card').forEach(el => observer.observe(el)); document.querySelectorAll('.nav-links a').forEach(link => { if (link.href === window.location.href) link.classList.add('active'); });</script>
 </body>
 </html>
